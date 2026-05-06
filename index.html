@@ -1215,7 +1215,7 @@
           <div class="contact-list">
             <a id="tgLink" href="#" target="_blank" rel="noopener">Telegram</a>
             <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
-            <a id="maxLink" href="#" target="_blank" rel="noopener">MAX: +7 909 431-89-64</a>
+            <a id="maxLink" href="#" target="_blank" rel="noopener">MAX</a>
             <a href="tel:+79094318964">+7 909 431-89-64</a>
             <a href="mailto:gnelgrigoryan7@gmail.com">gnelgrigoryan7@gmail.com</a>
           </div>
@@ -1320,14 +1320,10 @@
     const LEAD_CFG = {
       telegramPhone: '79094318964',
       telegramUsername: '',
-      telegramToken: 'YOUR_BOT_TOKEN',
-      telegramChatId: 'YOUR_CHAT_ID',
       whatsappNumber: '79094318964',
       maxPhone: '79094318964',
       maxProfileUrl: 'https://max.ru/u/f9LHodD0cOJZhdlslQQJ7vNMCeFcT4wc6Px68jOjXulmL2mxLngLRe4tQps',
-      leadEndpoint: '/api/leads',
-      crmEndpoint: '/crm/leads',
-      crmApiToken: 'REPLACE_WITH_API_TOKEN'
+      leadEndpoint: '/api/leads'
     };
 
     const tgLink = document.getElementById('tgLink');
@@ -1449,24 +1445,6 @@
       const msg = `Новая заявка:\n${data.name || ''}\nТелефон: ${data.phone || ''}\nMAX/WhatsApp: +${LEAD_CFG.maxPhone}\nОбъект: ${data.objectType || ''}\nПлощадь: ${data.area || ''} м²\nФормат: ${data.repairType || ''}\nДизайн-план: ${data.designNeed || ''}\n${calcText}\n${data.message || ''}`;
 
       formStatus.textContent = 'Отправляем заявку владельцу...';
-
-      if (LEAD_CFG.crmEndpoint && LEAD_CFG.crmEndpoint !== '/crm/leads') {
-        try {
-          await fetch(LEAD_CFG.crmEndpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${LEAD_CFG.crmApiToken}` },
-            body: JSON.stringify({
-              source: 'landing',
-              name: data.name,
-              phone: data.phone,
-              message: data.message,
-              city: 'Ростов-на-Дону'
-            })
-          });
-        } catch (e) {
-          formStatus.textContent = 'Заявка открыта в мессенджерах. CRM сейчас недоступна.';
-        }
-      }
 
       try {
         await sendLead({

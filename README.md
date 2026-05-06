@@ -1,77 +1,75 @@
-# Ремонт Ростов Под ключ — лендинг
+# AAA Remont landing
 
-Сайт-витрина услуги "ремонт под ключ" для Ростова-на-Дону.
+Landing page for turnkey apartment renovation services in Rostov-on-Don.
 
-## Что уже настроено
+## What is included
 
-- Лендинг на одном `index.html`
-- Авто-отправка заявок через:
-  - Telegram (username или endpoint)
-  - WhatsApp (номер)
-  - CRM endpoint (POST JSON)
-- SEO-блоки: Open Graph, Twitter Card, JSON-LD, keywords, canonical
-- `robots.txt` и `sitemap.xml`
-- Favicon и OG-обложка (`favicon.svg`, `og-cover.svg`)
-- GitHub Pages workflow (`.github/workflows/deploy-pages.yml`)
+- Static landing page in `index.html`.
+- SEO files: `robots.txt`, `sitemap.xml`, Open Graph cover, favicon.
+- Fast contact links for Telegram, WhatsApp, MAX, phone, and email.
+- Lead forms that keep the visitor on the site.
+- Node.js lead server in `server.js`.
+- Telegram Bot API delivery for submitted leads.
 
-## Как быстро подключить заявки
+## Production domain
 
-Откройте блок `leadConfig` в `index.html`:
-
-```js
-const leadConfig = {
-  telegram: {
-    username: "",
-    endpoint: "",
-  },
-  whatsapp: {
-    number: "",
-  },
-  crm: {
-    endpoint: "",
-    headers: {},
-  },
-};
+```text
+https://aaa-remont.ru
 ```
 
-- `telegram.username`: имя пользователя Telegram, например `@mycompany`.  
-  Будет открываться `t.me` с автозаполненным сообщением.
-- `whatsapp.number`: номер в формате `79831234567`.
-- `crm.endpoint`: ваш вебхук для приёма заявки (JSON POST).
+## Lead delivery
 
-## Как добавить в продакшн-CRM
+The frontend sends form data to:
 
-Лид отправляется в формате:
-
-```json
-{
-  "name": "Имя",
-  "phone": "+7 ...",
-  "object": "Адрес объекта",
-  "budget": "1000000",
-  "source": "landing-rostov",
-  "pageUrl": "...",
-  "createdAt": "ISO"
-}
+```text
+POST /api/leads
 ```
 
-Поддерживаемые заголовки: можно добавить в `leadConfig.crm.headers`.
+Nginx proxies this endpoint to:
 
-## Деплой
+```text
+http://127.0.0.1:3001/api/leads
+```
 
-1. Репозиторий уже подключен к GitHub:
-   - `Lerman19/remont-rostov-landing`
-2. После пуша в `main` Actions автоматически собирает и публикует Pages.
-3. Текущий URL проекта:
-   - https://lerman19.github.io/remont-rostov-landing/
-4. Для кастомного домена:
-   - добавьте его в `Settings -> Pages` репозитория.
+The Node.js service then sends the formatted lead to Telegram.
 
-## Что еще нужно заменить перед запуском
+Required server environment variables:
 
-- Реальные телефоны и email
-- Реальные фотографии/портфолио
-- Реальные контакты Telegram/WhatsApp
-- Настоящий CRM endpoint
-- Тексты маркетинга под вашу уникальную подачу
-- Реальные юридические контакты в политике конфиденциальности
+```text
+PORT=3001
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+TELEGRAM_CHAT_ID=owner_chat_id
+```
+
+Do not store real bot tokens in this repository.
+
+## VPS deployment
+
+Project path on the VPS:
+
+```text
+/var/www/aaa-remont
+```
+
+Lead service:
+
+```text
+aaa-remont-leads.service
+```
+
+Typical update flow:
+
+```bash
+git -C /var/www/aaa-remont pull --ff-only origin main
+chown -R www-data:www-data /var/www/aaa-remont
+systemctl restart aaa-remont-leads
+nginx -t
+systemctl reload nginx
+```
+
+## Repository
+
+```text
+https://github.com/Lerman19/remont-rostov-landing
+```
+
