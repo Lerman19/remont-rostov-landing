@@ -35,7 +35,11 @@
     />
     <meta name="twitter:image" content="https://lerman19.github.io/remont-rostov-landing/og-cover.svg" />
     <meta name="twitter:site" content="@repair" />
+    <meta property="og:locale:alternate" content="ru_RU" />
     <link rel="canonical" href="https://lerman19.github.io/remont-rostov-landing/" />
+    <link rel="alternate" hreflang="ru-RU" href="https://lerman19.github.io/remont-rostov-landing/" />
+    <link rel="alternate" hreflang="ru" href="https://lerman19.github.io/remont-rostov-landing/" />
+    <link rel="alternate" hreflang="x-default" href="https://lerman19.github.io/remont-rostov-landing/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="favicon.svg" />
 
@@ -49,19 +53,82 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Ремонт Ростов Под ключ",
-        "url": "https://lerman19.github.io/remont-rostov-landing/",
-        "image": "https://lerman19.github.io/remont-rostov-landing/og-cover.svg",
-        "telephone": "+7-863-000-00-00",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Ростов-на-Дону",
-          "addressRegion": "Ростовская область",
-          "addressCountry": "RU"
-        },
-        "areaServed": "Ростов-на-Дону и Ростовская область",
-        "description": "Ремонт и отделка квартир/домов под ключ."
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "name": "Ремонт Ростов Под ключ",
+            "url": "https://lerman19.github.io/remont-rostov-landing/",
+            "image": "https://lerman19.github.io/remont-rostov-landing/og-cover.svg",
+            "telephone": "+7-863-000-00-00",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ростов-на-Дону",
+              "addressRegion": "Ростовская область",
+              "addressCountry": "RU"
+            },
+            "areaServed": "Ростов-на-Дону и Ростовская область",
+            "description": "Ремонт и отделка квартир и домов под ключ."
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://lerman19.github.io/remont-rostov-landing/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://lerman19.github.io/remont-rostov-landing/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги",
+                "item": "https://lerman19.github.io/remont-rostov-landing/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Портфолио",
+                "item": "https://lerman19.github.io/remont-rostov-landing/#gallery"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Заявка",
+                "item": "https://lerman19.github.io/remont-rostov-landing/#quote"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Можно ли по вашему проекту работать по готовому дизайну?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Да, мы берём готовый макет и адаптируем его под технические требования."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Нужен ли аванс?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Обычно нужен организационный взнос, далее оплата по этапам согласно договору."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Что если сроки сдвинутся?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Перенос сроков фиксируется в договоре с понятным механизмом корректировок."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
 
