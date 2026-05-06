@@ -1,9 +1,8 @@
 const http = require('http');
 
 const PORT = Number(process.env.PORT || 3001);
-const MAX_BOT_TOKEN = process.env.MAX_BOT_TOKEN || '';
-const MAX_USER_ID = process.env.MAX_USER_ID || '';
-const MAX_CHAT_ID = process.env.MAX_CHAT_ID || '';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
 
 function sendJson(res, status, payload) {
   const body = JSON.stringify(payload);
@@ -55,27 +54,26 @@ function buildLeadMessage(lead) {
   return lines.filter(Boolean).join('\n');
 }
 
-async function sendToMax(text) {
-  if (!MAX_BOT_TOKEN || (!MAX_USER_ID && !MAX_CHAT_ID)) {
-    throw new Error('MAX credentials are not configured');
+async function sendToTelegram(text) {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    throw new Error('Telegram credentials are not configured');
   }
 
-  const query = MAX_USER_ID
-    ? `user_id=${encodeURIComponent(MAX_USER_ID)}`
-    : `chat_id=${encodeURIComponent(MAX_CHAT_ID)}`;
-
-  const response = await fetch(`https://platform-api.max.ru/messages?${query}`, {
+  const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
     method: 'POST',
     headers: {
-      'Authorization': MAX_BOT_TOKEN,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ text })
+    body: JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text,
+      disable_web_page_preview: true
+    })
   });
 
   if (!response.ok) {
     const details = await response.text().catch(() => '');
-    throw new Error(`MAX API error ${response.status}: ${details}`);
+    throw new Error(`Telegram API error ${response.status}: ${details}`);
   }
 
   return response.json().catch(() => ({}));
@@ -101,7 +99,7 @@ const server = http.createServer(async (req, res) => {
     const lead = JSON.parse(rawBody || '{}');
     const text = buildLeadMessage(lead);
 
-    await sendToMax(text);
+    await sendToTelegram(text);
     sendJson(res, 200, { ok: true });
   } catch (error) {
     console.error(error);
