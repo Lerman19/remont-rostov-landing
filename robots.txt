@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lerman19.github.io/remont-rostov-landing/sitemap.xml

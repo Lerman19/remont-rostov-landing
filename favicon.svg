@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Ремонт Ростов Под ключ">
+  <rect width="128" height="128" rx="24" fill="#0f766e" />
+  <path d="M24 102h80a8 8 0 0 0 8-8V50.3L64 26 16 50.3V94a8 8 0 0 0 8 8Z" fill="#ffffff"/>
+  <path d="M34 56h20v36H34zM60 48h34v44H60z" fill="#0f766e"/>
+  <circle cx="44" cy="74" r="6" fill="#111827"/>
+  <path d="M18 100h92" stroke="#f59e0b" stroke-width="7" stroke-linecap="round"/>
+  <path d="M48 86h24" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+</svg>

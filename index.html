@@ -2,24 +2,73 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ремонт под ключ | Ростов-на-Дону</title>
     <meta
       name="description"
-      content="Ремонт квартир и домов под ключ в Ростове-на-Дону: дизайн, черновые и чистовые работы, сантехника, электрика, мебель под ключ."
+      content="Ремонт квартир и домов под ключ в Ростове-на-Дону: дизайн, черновые и чистовые работы, сантехника, электрика, финишная отделка."
     />
+    <meta
+      name="keywords"
+      content="ремонт под ключ Ростов-на-Дону, ремонт квартиры, ремонт дома, дизайнерский ремонт, ремонт квартир Ростов"
+    />
+    <meta name="author" content="Ремонт Ростов Под ключ" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#0f766e" />
+
+    <meta property="og:title" content="Ремонт под ключ в Ростове-на-Дону" />
+    <meta
+      property="og:description"
+      content="Ремонт квартир и домов под ключ в Ростове-на-Дону: дизайн, инженерка, чистовая отделка, сантехника, электрика."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:url" content="https://lerman19.github.io/remont-rostov-landing/" />
+    <meta property="og:image" content="https://lerman19.github.io/remont-rostov-landing/og-cover.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ремонт под ключ | Ростов-на-Дону" />
+    <meta
+      name="twitter:description"
+      content="Ремонт квартир и домов под ключ от замера до финальной приемки."
+    />
+    <meta name="twitter:image" content="https://lerman19.github.io/remont-rostov-landing/og-cover.svg" />
+    <meta name="twitter:site" content="@repair" />
+    <link rel="canonical" href="https://lerman19.github.io/remont-rostov-landing/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Ремонт Ростов Под ключ",
+        "url": "https://lerman19.github.io/remont-rostov-landing/",
+        "image": "https://lerman19.github.io/remont-rostov-landing/og-cover.svg",
+        "telephone": "+7-863-000-00-00",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ростов-на-Дону",
+          "addressRegion": "Ростовская область",
+          "addressCountry": "RU"
+        },
+        "areaServed": "Ростов-на-Дону и Ростовская область",
+        "description": "Ремонт и отделка квартир/домов под ключ."
+      }
+    </script>
+
     <style>
       :root {
         --bg: #f6f7fc;
+        --panel: #ffffff;
         --primary: #0f766e;
         --primary-dark: #0b5f57;
         --accent: #f59e0b;
@@ -71,30 +120,12 @@
         font-weight: 700;
         transition: transform 160ms ease, box-shadow 160ms ease;
       }
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 10px 24px rgba(15, 118, 110, 0.2);
-      }
-      .btn-primary {
-        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-        color: #fff;
-      }
-      .btn-ghost {
-        background: white;
-        color: var(--text);
-        border: 1px solid var(--line);
-      }
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(15, 118, 110, 0.2); }
+      .btn-primary { background: linear-gradient(90deg, var(--primary), var(--primary-dark)); color: #fff; }
+      .btn-ghost { background: #fff; color: var(--text); border: 1px solid var(--line); }
 
-      .hero {
-        position: relative;
-        padding: 4rem 0 3rem;
-      }
-      .hero__grid {
-        display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 2rem;
-        align-items: center;
-      }
+      .hero { position: relative; padding: 4rem 0 3rem; }
+      .hero__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: center; }
       .badge {
         display: inline-flex;
         align-items: center;
@@ -103,13 +134,26 @@
         border: 1px solid #bbf7d0;
         color: #065f46;
         border-radius: 999px;
-        padding: .45rem .9rem;
-        font-size: .8rem;
+        padding: 0.45rem 0.9rem;
+        font-size: 0.8rem;
         margin-bottom: 1rem;
         width: fit-content;
       }
-      .hero h1 { font-size: clamp(1.9rem, 3.5vw, 3rem); margin-bottom: .8rem; }
+      .hero h1 { font-size: clamp(1.9rem, 3.5vw, 3rem); margin-bottom: 0.8rem; }
       .hero__actions { display: flex; gap: .8rem; flex-wrap: wrap; margin: 1.3rem 0; }
+      .trust {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1rem;
+        margin-top: 1.4rem;
+      }
+      .trust-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: .75rem .9rem;
+        text-align: center;
+      }
       .hero__card {
         position: relative;
         background: linear-gradient(180deg, #ffffff, #f8fafc);
@@ -118,43 +162,35 @@
         padding: 1.3rem;
         animation: float 8s ease-in-out infinite;
       }
-      .metric { display: grid; grid-template-columns: repeat(3,1fr); gap: .7rem; margin-top: 1.1rem; }
-      .metric div {
-        background: #fff;
-        padding: .75rem;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        font-size: .92rem;
+      .hero__card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        background:
+          linear-gradient(120deg, transparent, transparent 55%, rgba(245, 158, 11, .22) 56%, rgba(14, 165, 233, .16) 85%, transparent);
+        z-index: -1;
       }
-      .metric strong { display: block; color: var(--text); font-size: 1.1rem; margin-bottom: .2rem; }
-
-      .trust, .features, .steps, .pricing, .gallery {
+      .metric {
         display: grid;
-        gap: 1rem;
+        grid-template-columns: repeat(3,1fr);
+        gap: .7rem;
+        margin-top: 1.1rem;
       }
-      .trust { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); margin-top: 1.4rem; }
-      .trust-item {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: .75rem .9rem;
-        text-align: center;
-      }
+      .metric div { background: #fff; padding: .75rem; border: 1px solid var(--line); border-radius: 10px; font-size: .92rem; }
+      .metric strong { display:block; color: var(--text); font-size: 1.1rem; margin-bottom: .2rem; }
+
       .section { padding: 3.5rem 0; }
       .section h2 { font-size: clamp(1.45rem, 2.8vw, 2.2rem); margin-bottom: .7rem; }
       .section p.lead { max-width: 68ch; }
       .section__head { margin-bottom: 1.4rem; }
+      .grid { display: grid; gap: 1rem; }
       .features { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-      .feature {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 1rem;
-      }
+      .feature { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1rem; }
       .feature h3, .step h3, .plan h3 { margin-bottom: .4rem; font-size: 1.1rem; }
-      .steps { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+      .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
       .step {
-        background: linear-gradient(180deg, #fff, #f9fafb);
+        background: linear-gradient(180deg, #ffffff, #f9fafb);
         border: 1px dashed var(--line);
         border-radius: 14px;
         padding: 1rem;
@@ -169,7 +205,7 @@
         margin-bottom: .6rem;
         background: var(--accent);
       }
-      .pricing { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+      .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
       .plan {
         background: #fff;
         border-radius: 16px;
@@ -198,9 +234,7 @@
       .cta-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1rem; align-items: center; }
       .cta {
         position: relative;
-        background:
-          linear-gradient(100deg, rgba(14, 165, 233, .22), rgba(15, 118, 110, .2)),
-          white;
+        background: linear-gradient(100deg, rgba(14, 165, 233, .22), rgba(15, 118, 110, .2)), #fff;
         border: 1px solid #a7f3d0;
         border-radius: 18px;
         padding: 1.8rem;
@@ -214,10 +248,7 @@
         padding: .7rem .8rem;
         font: inherit;
       }
-      input:focus, select:focus {
-        outline: 2px solid #a7f3d0;
-        border-color: #5eead4;
-      }
+      input:focus, select:focus { outline: 2px solid #a7f3d0; border-color: #5eead4; }
       .lead-message {
         min-height: 1.25rem;
         font-size: .92rem;
@@ -225,6 +256,15 @@
         margin-top: .2rem;
       }
       .lead-error { color: #991b1b; }
+      .consent {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: .45rem;
+        align-items: start;
+        font-size: .87rem;
+        color: #111827;
+      }
+      .consent input { margin-top: .1rem; }
 
       .footer {
         border-top: 1px solid var(--line);
@@ -246,10 +286,7 @@
       }
       .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-      @keyframes float {
-        0%,100% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
-      }
+      @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
       @media (max-width: 930px) {
         .hero__grid, .cta-grid, .footer__grid { grid-template-columns: 1fr; }
         .hero { padding-top: 3rem; }
@@ -274,8 +311,8 @@
             <span class="badge">Локально в Ростове-на-Дону и пригороде</span>
             <h1>Ремонт под ключ без стресса — в срок, в бюджете и с понятной сметой</h1>
             <p>
-              Планировка, инженерка, чистовая отделка, сантехника, электрика и
-              фурнитура — ведем проект от замера до приемки с понятным контролем.
+              Полный цикл от замера до приемки: планировка, инженерия, чистовая отделка, сантехника и электрика.
+              Ведем проект прозрачно по этапам.
             </p>
             <div class="hero__actions">
               <a class="btn btn-primary" href="#services">Смотреть услуги</a>
@@ -287,9 +324,10 @@
               <div class="trust-item">Фикс. стоимость и срок</div>
             </div>
           </div>
+
           <aside class="hero__card fade-up">
             <h2>Нужен расчет стоимости?</h2>
-            <p>Введите параметры и получите ориентир еще до выезда бригады.</p>
+            <p>Заполните параметры объекта и получите ориентир.</p>
             <form id="calcForm">
               <label>
                 Тип помещения
@@ -317,7 +355,7 @@
             </form>
             <div class="metric">
               <div><strong id="resultText">От 2 800 ₽/м²</strong><span>Ориентир цены</span></div>
-              <div><strong>90%</strong><span>работ выполняем без доп. согласований</span></div>
+              <div><strong>90%</strong><span>работ по плану без перепланировок</span></div>
               <div><strong>12 дней</strong><span>до предварительной оценки</span></div>
             </div>
           </aside>
@@ -329,26 +367,26 @@
           <div class="section__head fade-up">
             <h2>Что входит в услугу «под ключ»</h2>
             <p class="lead">
-              Полный путь: дизайн, черновые работы, инженерка, чистовая отделка,
-              мебельные решения, финальная уборка и приемка.
+              Проектирование, демонтаж, черновые работы, электрика, сантехника, чистовая отделка,
+              установка мебели и финальная приемка с гарантией качества.
             </p>
           </div>
-          <div class="features">
+          <div class="features grid">
             <article class="feature fade-up">
               <h3>Проект и замеры</h3>
-              <p>3D-план, ведомости, согласование работ и точное ТЗ.</p>
+              <p>3D-план, ведомости материалов и согласование требований по вашему ТЗ.</p>
             </article>
             <article class="feature fade-up">
               <h3>Черновая стадия</h3>
-              <p>Демонтаж, выравнивание, электрика, сантехника, вынос/входные коммуникации.</p>
+              <p>Демонтаж, выравнивание, электромонтаж, сантехника, подготовка оснований.</p>
             </article>
             <article class="feature fade-up">
               <h3>Чистовая отделка</h3>
-              <p>Декоративные покрытия, стяжка, плитка, плинтуса, подсветка.</p>
+              <p>Плитка, стяжка, натяжной/малярный потолок, освещение, плинтуса и фурнитура.</p>
             </article>
             <article class="feature fade-up">
-              <h3>Приемка</h3>
-              <p>Фотоотчет, устранение недостатков и подготовка к финальной сдаче.</p>
+              <h3>Финишная сдача</h3>
+              <p>Фотоотчет, устранение мелких замечаний и передача объекта по акту.</p>
             </article>
           </div>
         </div>
@@ -356,30 +394,26 @@
 
       <section class="section">
         <div class="container">
-          <div class="section__head fade-up">
-            <h2>Как мы работаем</h2>
-          </div>
+          <div class="section__head fade-up"><h2>Как мы работаем</h2></div>
           <div class="steps">
-            <article class="step fade-up"><strong>1</strong><h3>Звонок и выезд</h3><p>За 30 минут согласуем удобное время и план работ.</p></article>
-            <article class="step fade-up"><strong>2</strong><h3>Смета и сроки</h3><p>Фиксируем смету, этапы и контролируемые точки.</p></article>
-            <article class="step fade-up"><strong>3</strong><h3>Ремонтный процесс</h3><p>Еженедельные фотоотчеты и короткие созвоны с заказчиком.</p></article>
-            <article class="step fade-up"><strong>4</strong><h3>Сдача</h3><p>Окончательная проверка качества и уборка под ключ.</p></article>
+            <article class="step fade-up"><strong>1</strong><h3>Звонок и выезд</h3><p>Согласуем удобное время и проводим бесплатный выезд замерщика.</p></article>
+            <article class="step fade-up"><strong>2</strong><h3>Смета и договор</h3><p>Фиксируем цену, сроки, этапы и условия поэтапной оплаты.</p></article>
+            <article class="step fade-up"><strong>3</strong><h3>Ремонтный процесс</h3><p>Еженедельные отчеты и прозрачный контроль качества в вашем чате.</p></article>
+            <article class="step fade-up"><strong>4</strong><h3>Сдача</h3><p>Проверка по контрольному листу и финальная уборка.</p></article>
           </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
-          <div class="section__head fade-up">
-            <h2>Тарифы</h2>
-          </div>
+          <div class="section__head fade-up"><h2>Тарифы</h2></div>
           <div class="pricing">
             <article class="plan fade-up">
               <div>
                 <h3>Эконом</h3>
                 <div class="price">от 2 500 ₽/м²</div>
                 <ul>
-                  <li>Чистовая отделка и малые работы</li>
+                  <li>Чистовая отделка</li>
                   <li>Стандартная инженерка</li>
                   <li>2 контрольные точки</li>
                 </ul>
@@ -392,11 +426,11 @@
                 <div class="price">от 3 700 ₽/м²</div>
                 <ul>
                   <li>Дизайн и смета</li>
-                  <li>Фотоотчет по этапам</li>
+                  <li>Еженедельные фотоотчеты</li>
                   <li>Гибкий контроль сроков</li>
                 </ul>
               </div>
-              <button class="btn btn-primary">Выбрать</button>
+              <button class="btn btn-primary">Самый популярный</button>
             </article>
             <article class="plan fade-up">
               <div>
@@ -404,11 +438,11 @@
                 <div class="price">по согласованию</div>
                 <ul>
                   <li>Отдельный прораб на объекте</li>
-                  <li>Поставка отделки и материалов</li>
+                  <li>Закупки и логистика</li>
                   <li>Гарантия до 2 лет</li>
                 </ul>
               </div>
-              <button class="btn btn-primary">Нужна помощь эксперта</button>
+              <button class="btn btn-primary">Нужна консультация</button>
             </article>
           </div>
         </div>
@@ -418,15 +452,15 @@
         <div class="container">
           <div class="section__head fade-up">
             <h2>Примеры работ</h2>
-            <p class="lead">Частные и новостроящие объекты в историческом центре и районах города.</p>
+            <p class="lead">Портфолио по объектам в Ростове-на-Дону и Ростовской области.</p>
           </div>
-          <div class="gallery">
+          <div class="gallery grid">
             <figure class="fade-up">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Готовая квартира после ремонта" />
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Квартира после ремонта" />
               <figcaption>Студия 38 м², 21 день</figcaption>
             </figure>
             <figure class="fade-up">
-              <img src="https://images.unsplash.com/photo-1600607687644-c7f0f0d9b3d4?auto=format&fit=crop&w=1200&q=80" alt="Квартира после ремонта" />
+              <img src="https://images.unsplash.com/photo-1600607687644-c7f0f0d9b3d4?auto=format&fit=crop&w=1200&q=80" alt="Двухкомнатная квартира после ремонта" />
               <figcaption>2-комнатная 64 м², 38 дней</figcaption>
             </figure>
             <figure class="fade-up">
@@ -439,21 +473,19 @@
 
       <section class="section">
         <div class="container">
-          <div class="section__head">
-            <h2>Частые вопросы</h2>
-          </div>
+          <div class="section__head"><h2>Частые вопросы</h2></div>
           <div class="faq">
             <details>
-              <summary>Можно ли работать по уже готовому дизайну?</summary>
-              <p>Да, подстраиваем все этапы под ваш макет и финальный результат.</p>
+              <summary>Можно ли по вашему проекту работать по готовому дизайну?</summary>
+              <p>Да, мы берём готовый макет и адаптируем его под технические требования.</p>
             </details>
             <details>
               <summary>Нужен ли аванс?</summary>
-              <p>Как правило, принимается организационный аванс, дальше поэтапная оплата.</p>
+              <p>Обычно нужен организационный взнос, далее оплата по этапам согласно договору.</p>
             </details>
             <details>
-              <summary>Если сроки сдвигаются?</summary>
-              <p>Согласовываем корректировку в договоре с понятной схемой компенсации.</p>
+              <summary>Что если сроки сдвинутся?</summary>
+              <p>Перенос сроков фиксируется в договоре с понятным механизмом корректировок.</p>
             </details>
           </div>
         </div>
@@ -463,7 +495,7 @@
         <div class="container cta-grid">
           <div class="fade-up">
             <h2>Оставьте заявку на бесплатный выезд специалиста</h2>
-            <p>Форма подключается к Telegram/WhatsApp и вашему CRM-эндпоинту. Введите контакт — и мы вернемся в течение 20 минут.</p>
+            <p>Форма отправляется в Telegram/WhatsApp и/или в CRM-эндпоинт. Мы свяжемся с вами в течение 20 минут.</p>
             <p><strong>Телефон:</strong> +7 (863) 000-00-00</p>
             <p><strong>Адрес:</strong> Ростов-на-Дону</p>
           </div>
@@ -472,10 +504,31 @@
             <input id="leadPhone" name="phone" required placeholder="Телефон" />
             <input id="leadObject" name="object" placeholder="Адрес объекта (необязательно)" />
             <input id="leadBudget" name="budget" placeholder="Ориентировочный бюджет" />
+            <label class="consent">
+              <input id="leadConsent" name="consent" required type="checkbox" />
+              <span>
+                Я согласен на обработку персональных данных и даю согласие на обращение по заявке.
+                <a href="#privacy-policy">Подробнее</a>.
+              </span>
+            </label>
             <button class="btn btn-primary" type="submit">Отправить заявку</button>
             <div id="leadMessage" class="lead-message" aria-live="polite"></div>
-            <div class="small">Нажимая «Отправить заявку», вы соглашаетесь на обработку данных.</div>
+            <div class="small">Нажимая кнопку, вы подтверждаете, что ознакомились с политикой конфиденциальности.</div>
           </form>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 id="privacy-policy">Политика конфиденциальности</h2>
+          <p>
+            Мы используем переданные данные только для связи по вашей заявке: имя, телефон и
+            дополнительно указанные поля.
+          </p>
+          <p>
+            Обработка данных выполняется в соответствии с 152-ФЗ. Срок хранения — 12 месяцев или до
+            отзыва согласия.
+          </p>
         </div>
       </section>
     </main>
@@ -484,11 +537,11 @@
       <div class="container footer__grid">
         <div>
           <strong>Ремонт Ростов Под ключ</strong>
-          <p class="small">Ремонт квартир и домов в Ростове-на-Дону под ключ.</p>
+          <p class="small">Ремонт квартир и домов под ключ в Ростове-на-Дону.</p>
         </div>
         <div>
           <p class="small">Пн–Сб: 09:00 — 20:00</p>
-          <p class="small">Заявки принимаем ежедневно</p>
+          <p class="small">Работаем также и онлайн.</p>
         </div>
         <div>
           <p class="small">Тел: +7 (863) 000-00-00</p>
@@ -498,25 +551,20 @@
     </footer>
 
     <script>
-      // Настройте здесь ваши параметры отправки заявок
       const leadConfig = {
         telegram: {
-          // Варианты:
-          // 1) username: "your_telegram_username" -> откроет чат в Telegram с готовым текстом
-          // 2) оставить пустым, если не нужно
+          // Оставьте либо username, либо endpoint. Лучше — endpoint вашей серверной интеграции.
           username: "",
-          // Если хотите отправлять через Telegram Bot API, добавьте ссылку:
-          // endpoint: "https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage"
+          // Пример: "https://your-service.example/telegram-leads"
           endpoint: "",
         },
         whatsapp: {
-          // Например: "79831234567" (международный формат, без + и пробелов)
+          // Междунар. формат: 7983..., без + и пробелов.
           number: "",
         },
         crm: {
-          // POST-запрос в вашу CRM (вместо webhook можно использовать n8n/Zapier/Make)
+          // Пример: "https://your-service.example/leads"
           endpoint: "",
-          // Если нужна авторизация, добавьте header сюда
           headers: {},
         },
       };
@@ -538,8 +586,8 @@
 
       const calcForm = document.getElementById("calcForm");
       const resultText = document.getElementById("resultText");
-      calcForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+      calcForm.addEventListener("submit", (event) => {
+        event.preventDefault();
         const type = document.getElementById("spaceType").value;
         const area = Number(document.getElementById("area").value || 0);
         const complexity = document.getElementById("complexity").value;
@@ -550,7 +598,7 @@
       });
 
       function toWhatsAppLink(text) {
-        const phone = leadConfig.whatsapp.number.replace(/\D/g, "");
+        const phone = leadConfig.whatsapp.number.replace(/\\D/g, "");
         if (!phone) return null;
         return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
       }
@@ -561,9 +609,18 @@
         return `https://t.me/${username}?text=${encodeURIComponent(text)}`;
       }
 
-      async function sendToCRM(payload) {
-        if (!leadConfig.crm.endpoint) return null;
-        const response = await fetch(leadConfig.crm.endpoint, {
+      function normalizeLead(payload) {
+        return {
+          ...payload,
+          createdAt: new Date().toISOString(),
+          source: "landing-rostov",
+          pageUrl: window.location.href,
+        };
+      }
+
+      async function sendLeadToEndpoint(endpoint, payload) {
+        if (!endpoint) return null;
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -573,52 +630,76 @@
         });
 
         if (!response.ok) {
-          throw new Error(`Ошибка CRM (${response.status})`);
+          throw new Error(`Ошибка отправки: ${response.status}`);
         }
-        return response.json().catch(() => true);
+
+        const responseType = response.headers.get("content-type") || "";
+        if (responseType.includes("application/json")) {
+          return response.json();
+        }
+        return { ok: true };
+      }
+
+      async function sendLead(payload) {
+        const tasks = [];
+        const leadText = `Заявка с лендинга:\nИмя: ${payload.name}\nТелефон: ${payload.phone}\nОбъект: ${payload.object || "-"}\nБюджет: ${payload.budget || "-"}`;
+
+        const telegramLink = toTelegramLink(leadText);
+        const whatsappLink = toWhatsAppLink(leadText);
+
+        if (leadConfig.telegram.endpoint) {
+          tasks.push(
+            sendLeadToEndpoint(leadConfig.telegram.endpoint, { ...payload, channel: "telegram" }).catch((error) => {
+              console.error("Telegram endpoint:", error);
+            })
+          );
+        } else if (telegramLink) {
+          window.open(telegramLink, "_blank", "noopener");
+        }
+
+        if (leadConfig.whatsapp.number) {
+          window.open(toWhatsAppLink(leadText), "_blank", "noopener");
+        } else if (leadConfig.whatsapp.number === "" && whatsappLink === null) {
+          // intentionally empty
+        }
+
+        if (leadConfig.crm.endpoint) {
+          tasks.push(
+            sendLeadToEndpoint(leadConfig.crm.endpoint, payload).catch((error) => {
+              console.error("CRM:", error);
+            })
+          );
+        }
+
+        if (tasks.length === 0) {
+          throw new Error("Не настроены каналы отправки заявок");
+        }
+        await Promise.all(tasks);
       }
 
       const quoteForm = document.getElementById("quoteForm");
       const leadMessage = document.getElementById("leadMessage");
-      quoteForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+      quoteForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
         leadMessage.classList.remove("lead-error");
         leadMessage.textContent = "Обрабатываем заявку...";
 
-        const lead = {
+        const payload = normalizeLead({
           name: document.getElementById("leadName").value.trim(),
           phone: document.getElementById("leadPhone").value.trim(),
           object: document.getElementById("leadObject").value.trim(),
           budget: document.getElementById("leadBudget").value.trim(),
-          source: "landing-rostov",
-          createdAt: new Date().toISOString(),
-        };
-
-        const leadText = `Заявка с лендинга:\nИмя: ${lead.name}\nТелефон: ${lead.phone}\nОбъект: ${lead.object || "-"}\nБюджет: ${lead.budget || "-"}`;
-        const telegramLink = toTelegramLink(leadText);
-        const whatsappLink = toWhatsAppLink(leadText);
+        });
 
         try {
-          const crmPromise = sendToCRM(lead).catch(() => null);
-
-          if (telegramLink) {
-            window.open(telegramLink, "_blank", "noopener");
-          }
-          if (whatsappLink) {
-            window.open(whatsappLink, "_blank", "noopener");
-          }
-
-          await crmPromise;
-          leadMessage.textContent = "Заявка отправлена. Менеджер свяжется в течение 20 минут.";
+          await sendLead(payload);
+          leadMessage.textContent = "Спасибо! Заявка отправлена. Менеджер свяжется в течение 20 минут.";
           quoteForm.reset();
-
-          if (!telegramLink && !whatsappLink && !leadConfig.crm.endpoint) {
-            leadMessage.classList.add("lead-error");
-            leadMessage.textContent = "Сейчас не настроены каналы отправки. Укажите Telegram/WhatsApp/CRM в leadConfig в файле.";
-          }
         } catch (error) {
           leadMessage.classList.add("lead-error");
-          leadMessage.textContent = "Ошибка отправки. Проверьте настройки leadConfig и попробуйте снова.";
+          leadMessage.textContent = error.message === "Не настроены каналы отправки заявок"
+            ? "Не настроены каналы отправки. Укажите Telegram, WhatsApp или CRM в leadConfig."
+            : "Ошибка отправки. Проверьте настройки и попробуйте снова.";
         }
       });
     </script>
