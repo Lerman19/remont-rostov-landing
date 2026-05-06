@@ -56,18 +56,107 @@
         "@graph": [
           {
             "@type": "LocalBusiness",
+            "@id": "https://lerman19.github.io/remont-rostov-landing/#business",
             "name": "Ремонт Ростов Под ключ",
             "url": "https://lerman19.github.io/remont-rostov-landing/",
             "image": "https://lerman19.github.io/remont-rostov-landing/og-cover.svg",
             "telephone": "+7-863-000-00-00",
+            "areaServed": "Ростов-на-Дону и Ростовская область",
+            "description": "Ремонт и отделка квартир и домов под ключ.",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Ростов-на-Дону",
               "addressRegion": "Ростовская область",
               "addressCountry": "RU"
             },
-            "areaServed": "Ростов-на-Дону и Ростовская область",
-            "description": "Ремонт и отделка квартир и домов под ключ."
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "Customer Support",
+                "telephone": "+7-863-000-00-00",
+                "availableLanguage": ["Russian"],
+                "areaServed": "RU",
+                "hoursAvailable": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+                  "opens": "09:00",
+                  "closes": "20:00"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://lerman19.github.io/remont-rostov-landing/#service",
+            "name": "Ремонт под ключ",
+            "serviceType": "Ремонт и отделка квартир/домов",
+            "provider": {
+              "@id": "https://lerman19.github.io/remont-rostov-landing/#business"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Ростов-на-Дону"
+            },
+            "description": "Полный цикл ремонтных работ под ключ с проектом, черновой и чистовой отделкой.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Тарифы ремонта",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "name": "Эконом",
+                  "priceCurrency": "RUB",
+                  "price": "2500",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "2500",
+                    "priceCurrency": "RUB",
+                    "unitText": "m²"
+                  },
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Ремонт в эконом формате"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Стандарт",
+                  "priceCurrency": "RUB",
+                  "price": "3700",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "3700",
+                    "priceCurrency": "RUB",
+                    "unitText": "m²"
+                  },
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Ремонт в стандарт формате"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Премиум",
+                  "priceCurrency": "RUB",
+                  "price": "По согласованию",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Ремонт с сопровождением проекта"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://lerman19.github.io/remont-rostov-landing/#website",
+            "name": "Ремонт Ростов Под ключ",
+            "url": "https://lerman19.github.io/remont-rostov-landing/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://lerman19.github.io/remont-rostov-landing/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
           },
           {
             "@type": "BreadcrumbList",
