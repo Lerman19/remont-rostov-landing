@@ -1363,6 +1363,15 @@
       window.open(shareUrl, '_blank');
     }
 
+    async function openTelegramWithMessage(message) {
+      try {
+        await navigator.clipboard.writeText(message);
+      } catch (e) {
+        // Если браузер запретил буфер, всё равно откроем чат Telegram.
+      }
+      window.open(telegramUrl, '_blank');
+    }
+
     function updateCalc() {
       const area = Number(areaInput.value);
       const selected = repairTypeInput.options[repairTypeInput.selectedIndex];
@@ -1417,7 +1426,7 @@
       const text = encodeURIComponent(msg);
 
       modalStatus.textContent = 'Открываем заявку в WhatsApp, Telegram и MAX...';
-      window.open(`https://t.me/share/url?text=${text}`, '_blank');
+      await openTelegramWithMessage(msg);
       window.open(`${whatsappUrl}&text=${text}`, '_blank');
       await openMaxWithMessage(msg);
       event.target.reset();
@@ -1447,6 +1456,7 @@
         window.open(`https://t.me/share/url?text=${text}`, '_blank');
       }
 
+      await openTelegramWithMessage(msg);
       window.open(`${whatsappUrl}&text=${text}`, '_blank');
       await openMaxWithMessage(msg);
 
