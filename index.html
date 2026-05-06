@@ -689,12 +689,54 @@
     {
       "@context": "https://schema.org",
       "@type": "HomeAndConstructionBusiness",
+      "@id": "https://aaa-remont.ru/#business",
       "name": "ААА",
+      "alternateName": "ААА ремонт",
+      "url": "https://aaa-remont.ru/",
+      "image": "https://aaa-remont.ru/og-cover.svg",
+      "logo": "https://aaa-remont.ru/favicon.svg",
       "description": "Ремонт квартир и домов под ключ в Ростове-на-Дону",
-      "areaServed": "Ростов-на-Дону",
       "telephone": "+79094318964",
       "email": "gnelgrigoryan7@gmail.com",
-      "priceRange": "₽₽"
+      "priceRange": "₽₽",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ростов-на-Дону",
+        "addressRegion": "Ростовская область",
+        "addressCountry": "RU"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Ростов-на-Дону"
+        },
+        {
+          "@type": "City",
+          "name": "Аксай"
+        },
+        {
+          "@type": "City",
+          "name": "Батайск"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+79094318964",
+          "email": "gnelgrigoryan7@gmail.com",
+          "areaServed": "RU",
+          "availableLanguage": ["ru"]
+        }
+      ]
     }
   </script>
   <script type="application/ld+json">
@@ -1162,7 +1204,8 @@
       <div class="contact-layout">
         <aside class="contact-card">
           <h3>Быстрая связь</h3>
-          <p class="tiny-note">Ответим в рабочее время: пн–сб, 09:00–19:00.</p>
+          <p class="tiny-note">Официальные контакты ААА ремонт. Работаем в Ростове-на-Дону, Аксае, Батайске и ближайших районах.</p>
+          <p class="tiny-note">График работы: пн–сб, 09:00–19:00. Воскресенье — выходной.</p>
           <div class="contact-list">
             <a id="tgLink" href="#" target="_blank" rel="noopener">Telegram</a>
             <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
