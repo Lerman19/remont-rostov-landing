@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Ремонт Ростов Под ключ">
-  <rect width="128" height="128" rx="24" fill="#0f766e" />
-  <path d="M24 102h80a8 8 0 0 0 8-8V50.3L64 26 16 50.3V94a8 8 0 0 0 8 8Z" fill="#ffffff"/>
-  <path d="M34 56h20v36H34zM60 48h34v44H60z" fill="#0f766e"/>
-  <circle cx="44" cy="74" r="6" fill="#111827"/>
-  <path d="M18 100h92" stroke="#f59e0b" stroke-width="7" stroke-linecap="round"/>
-  <path d="M48 86h24" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ААА">
+  <rect width="128" height="128" rx="28" fill="#fffaf2"/>
+  <path d="M17 54 34 35l17 19v47H17Z" fill="#b5532f"/>
+  <path d="M47 47 64 27l17 20v54H47Z" fill="#28475c"/>
+  <path d="M77 55 94 36l17 19v46H77Z" fill="#d99152"/>
+  <text x="34" y="86" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="#fffaf2">А</text>
+  <text x="64" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="900" fill="#fffaf2">А</text>
+  <text x="94" y="86" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="#fffaf2">А</text>
+  <path d="M19 101h90" stroke="#211a16" stroke-width="6" stroke-linecap="round" opacity=".18"/>
 </svg>
