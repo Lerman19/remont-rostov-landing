@@ -1311,7 +1311,7 @@
         <textarea id="modalMessage" name="message" placeholder="Адрес, сроки, пожелания по отделке"></textarea>
         <button class="btn btn-accent" type="submit">Отправить заявку</button>
         <p id="modalStatus" class="form-status" aria-live="polite"></p>
-        <p class="tiny-note">Заявка откроется в WhatsApp и Telegram с выбранным пакетом.</p>
+        <p class="tiny-note">Заявка отправится владельцу отдельным сообщением, а вы останетесь на сайте.</p>
       </form>
     </div>
   </div>
@@ -1325,6 +1325,7 @@
       whatsappNumber: '79094318964',
       maxPhone: '79094318964',
       maxProfileUrl: 'https://max.ru/u/f9LHodD0cOJZhdlslQQJ7vNMCeFcT4wc6Px68jOjXulmL2mxLngLRe4tQps',
+      leadEndpoint: '/api/leads',
       crmEndpoint: '/crm/leads',
       crmApiToken: 'REPLACE_WITH_API_TOKEN'
     };
@@ -1358,18 +1359,18 @@
     headerWaLink.href = whatsappUrl;
     headerMaxLink.href = maxUrl;
 
-    async function openMaxWithMessage(message) {
-      const shareUrl = LEAD_CFG.maxProfileUrl || `https://max.ru/:share?text=${encodeURIComponent(message)}`;
-      window.open(shareUrl, '_blank');
-    }
+    async function sendLead(payload) {
+      const response = await fetch(LEAD_CFG.leadEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
 
-    async function openTelegramWithMessage(message) {
-      try {
-        await navigator.clipboard.writeText(message);
-      } catch (e) {
-        // Если браузер запретил буфер, всё равно откроем чат Telegram.
+      if (!response.ok) {
+        throw new Error('Lead endpoint unavailable');
       }
-      window.open(telegramUrl, '_blank');
+
+      return response.json().catch(() => ({}));
     }
 
     function updateCalc() {
@@ -1423,14 +1424,22 @@
       event.preventDefault();
       const data = Object.fromEntries(new FormData(event.target).entries());
       const msg = `Заявка на пакет:\n${data.selectedPackage || ''}\n${data.name || ''}\nТелефон: ${data.phone || ''}\nMAX/WhatsApp: +${LEAD_CFG.maxPhone}\nОбъект: ${data.objectType || ''}\nПлощадь: ${data.area || ''} м²\n${data.message || ''}`;
-      const text = encodeURIComponent(msg);
 
-      modalStatus.textContent = 'Открываем заявку в WhatsApp, Telegram и MAX...';
-      await openTelegramWithMessage(msg);
-      window.open(`${whatsappUrl}&text=${text}`, '_blank');
-      await openMaxWithMessage(msg);
-      event.target.reset();
-      closePackageModal();
+      modalStatus.textContent = 'Отправляем заявку владельцу...';
+
+      try {
+        await sendLead({
+          source: 'package-modal',
+          messenger: 'max',
+          message: msg,
+          ...data
+        });
+        event.target.reset();
+        modalStatus.textContent = 'Заявка отправлена. Мы скоро свяжемся с вами.';
+        setTimeout(closePackageModal, 900);
+      } catch (e) {
+        modalStatus.textContent = 'Не удалось отправить заявку. Позвоните или напишите нам через кнопки в шапке.';
+      }
     });
 
     document.getElementById('leadForm').addEventListener('submit', async (event) => {
@@ -1438,27 +1447,8 @@
       const data = Object.fromEntries(new FormData(event.target).entries());
       const calcText = updateCalc();
       const msg = `Новая заявка:\n${data.name || ''}\nТелефон: ${data.phone || ''}\nMAX/WhatsApp: +${LEAD_CFG.maxPhone}\nОбъект: ${data.objectType || ''}\nПлощадь: ${data.area || ''} м²\nФормат: ${data.repairType || ''}\nДизайн-план: ${data.designNeed || ''}\n${calcText}\n${data.message || ''}`;
-      const text = encodeURIComponent(msg);
 
-      formStatus.textContent = 'Готовим заявку и открываем WhatsApp, Telegram и MAX...';
-
-      if (LEAD_CFG.telegramToken !== 'YOUR_BOT_TOKEN' && LEAD_CFG.telegramChatId !== 'YOUR_CHAT_ID') {
-        try {
-          await fetch(`https://api.telegram.org/bot${LEAD_CFG.telegramToken}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: LEAD_CFG.telegramChatId, text: msg })
-          });
-        } catch (e) {
-          window.open(`https://t.me/share/url?text=${text}`, '_blank');
-        }
-      } else {
-        window.open(`https://t.me/share/url?text=${text}`, '_blank');
-      }
-
-      await openTelegramWithMessage(msg);
-      window.open(`${whatsappUrl}&text=${text}`, '_blank');
-      await openMaxWithMessage(msg);
+      formStatus.textContent = 'Отправляем заявку владельцу...';
 
       if (LEAD_CFG.crmEndpoint && LEAD_CFG.crmEndpoint !== '/crm/leads') {
         try {
@@ -1478,8 +1468,19 @@
         }
       }
 
-      event.target.reset();
-      formStatus.textContent = 'Заявка подготовлена. Мы свяжемся с вами в ближайшее время.';
+      try {
+        await sendLead({
+          source: 'main-form',
+          messenger: 'max',
+          message: msg,
+          estimate: calcText,
+          ...data
+        });
+        event.target.reset();
+        formStatus.textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+      } catch (e) {
+        formStatus.textContent = 'Не удалось отправить заявку. Позвоните или напишите нам через кнопки в шапке.';
+      }
     });
   </script>
 </body>
